@@ -1,5 +1,5 @@
 resources:
   - namespace.yaml
-  - https://raw.githubusercontent.com/metallb/metallb/v0.14.8/config/manifests/metallb-native.yaml
   - ippool.yaml
   - l2advertisement.yaml
+

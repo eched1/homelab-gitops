@@ -1,5 +1,15 @@
 resources:
+  # Existing (current lab CA)
   - ca-selfsigned-issuer.yaml
   - ca-certificate.yaml
   - clusterissuer-lan-ca.yaml
+
+  # New enterprise PKI chain
+  - root-issuer.yaml
+  - root-ca-cert.yaml
+  - root-ca-issuer.yaml
+  - intermediate-ca-cert.yaml
+  - clusterissuer-intermediate.yaml
+
+  # Leaf certs
   - wildcard-lan.yaml

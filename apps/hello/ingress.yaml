@@ -7,10 +7,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - hello.lan
-      secretName: wildcard-lan-tls
+        - hello.home.arpa
+      secretName: wildcard-home-arpa-tls
   rules:
-    - host: hello.lan
+    - host: hello.home.arpa
       http:
         paths:
           - path: /
@@ -20,3 +20,4 @@ spec:
                 name: hello
                 port:
                   number: 80
+                  

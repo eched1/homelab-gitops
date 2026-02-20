@@ -1,13 +1,14 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: wildcard-lan
+  name: wildcard-home-arpa
   namespace: hello
 spec:
-  secretName: wildcard-lan-tls
+  secretName: wildcard-home-arpa-tls
   dnsNames:
-    - "*.lan"
-    - "lan"
+    - "*.home.arpa"
+    - "home.arpa"
   issuerRef:
     name: lan-ca
     kind: ClusterIssuer
+    

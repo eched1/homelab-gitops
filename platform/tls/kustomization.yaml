@@ -1,0 +1,5 @@
+resources:
+  - ca-selfsigned-issuer.yaml
+  - ca-certificate.yaml
+  - clusterissuer-lan-ca.yaml
+  - wildcard-lan.yaml

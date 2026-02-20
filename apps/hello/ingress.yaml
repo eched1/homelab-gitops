@@ -8,7 +8,7 @@ spec:
   tls:
     - hosts:
         - hello.lan
-      secretName: hello-tls
+      secretName: wildcard-lan-tls
   rules:
     - host: hello.lan
       http:

@@ -1,10 +1,10 @@
 resources:
-  # Existing (current lab CA)
+  # Existing CA (current)
   - ca-selfsigned-issuer.yaml
   - ca-certificate.yaml
   - clusterissuer-lan-ca.yaml
 
-  # New enterprise PKI chain
+  # Enterprise PKI chain
   - root-issuer.yaml
   - root-ca-cert.yaml
   - root-ca-issuer.yaml

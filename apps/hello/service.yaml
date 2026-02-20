@@ -4,9 +4,10 @@ metadata:
   name: hello
   namespace: hello
 spec:
+  type: ClusterIP
   selector:
     app: hello
   ports:
     - port: 80
-      targetPort: 80
-  type: ClusterIP
+      targetPort: 5678
+      protocol: TCP

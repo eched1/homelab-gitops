@@ -1,3 +1,4 @@
-
+resources:
+  - root-app.yaml
   - platform-observability-prometheus.yaml
   - platform-observability-loki.yaml

@@ -128,6 +128,8 @@ spec:
     helm:
       releaseName: kube-prometheus-stack
       values: |
+        crds:
+          enabled: false
         grafana:
           adminPassword: admin
           service:
@@ -197,3 +199,45 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platform-observability-prometheus-crds
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "28"
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    targetRevision: 66.2.1
+    helm:
+      releaseName: kube-prometheus-stack-crds
+      values: |
+        grafana:
+          enabled: false
+        alertmanager:
+          enabled: false
+        prometheus:
+          enabled: false
+        kubeStateMetrics:
+          enabled: false
+        nodeExporter:
+          enabled: false
+        prometheusOperator:
+          enabled: false
+        crds:
+          enabled: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

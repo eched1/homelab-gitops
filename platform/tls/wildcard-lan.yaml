@@ -9,6 +9,5 @@ spec:
     - "*.home.arpa"
     - "home.arpa"
   issuerRef:
-    name: lan-ca
+    name: homelab-ca
     kind: ClusterIssuer
-    

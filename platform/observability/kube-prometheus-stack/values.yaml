@@ -1,12 +1,21 @@
+crds:
+  enabled: false
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+
 grafana:
-  adminPassword: "admin"
+  adminPassword: admin
   service:
     type: ClusterIP
   ingress:
-    enabled: true
+    enabled: false   # if you keep your separate grafana-ingress app
 
 prometheus:
   prometheusSpec:
+    storageSpec:
+      emptyDir: {}
     retention: 10d
     scrapeInterval: 30s
     evaluationInterval: 30s
@@ -22,4 +31,4 @@ kubeStateMetrics:
   enabled: true
 
 nodeExporter:
-  enabled: true
+  enabled: true 

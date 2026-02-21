@@ -135,6 +135,10 @@ spec:
         crds:
           enabled: false
 
+        prometheusOperator:
+          admissionWebhooks:
+            enabled: false
+
         grafana:
           adminPassword: admin
           service:
@@ -147,6 +151,8 @@ spec:
 
         prometheus:
           prometheusSpec:
+            storageSpec:
+              emptyDir: {}
             retention: 10d
             scrapeInterval: 30s
             evaluationInterval: 30s

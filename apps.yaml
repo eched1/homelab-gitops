@@ -131,7 +131,8 @@ spec:
     targetRevision: 66.2.1
     helm:
       releaseName: kube-prometheus-stack
-      values: |
+      valueFiles:
+        - values.yaml
         crds:
           enabled: false
 
@@ -203,6 +204,7 @@ spec:
         promtail:
           enabled: true
         grafana:
+          ingress:
           enabled: false
   syncPolicy:
     automated:

@@ -4,9 +4,6 @@ grafana:
     type: ClusterIP
   ingress:
     enabled: true
-    ingressClassName: nginx
-    hosts:
-      - grafana.home.arpa
 
 prometheus:
   prometheusSpec:

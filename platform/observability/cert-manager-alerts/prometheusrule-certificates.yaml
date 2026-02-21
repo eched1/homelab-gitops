@@ -27,20 +27,20 @@ spec:
             summary: "Certificate expired"
             description: "Certificate {{ $labels.name }} in namespace {{ $labels.namespace }} is expired."
 
-        - alert: CertManagerNotReady
-          expr: max by (pod) (kube_pod_container_status_ready{namespace="cert-manager"} == 0)
-          for: 10m
-          labels:
-            severity: warning
-          annotations:
-            summary: "cert-manager pod not ready"
-            description: "cert-manager has a container not ready for >10m."
-
-        - alert: CertManagerIssuingErrors
-          expr: increase(certmanager_controller_sync_total{result="error"}[10m]) > 0
+        - alert: CertManagerControllerErrors
+          expr: increase(certmanager_controller_sync_total{result="error"}[15m]) > 0
           for: 5m
           labels:
             severity: warning
           annotations:
-            summary: "cert-manager controller errors"
-            description: "cert-manager has controller sync errors in the last 10 minutes."
+            summary: "cert-manager controller sync errors"
+            description: "cert-manager has controller sync errors in the last 15 minutes."
+
+        - alert: CertManagerWebhookDown
+          expr: absent(up{job=~".*cert-manager-webhook.*"} == 1)
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: "cert-manager webhook missing from Prometheus"
+            description: "Prometheus cannot see cert-manager-webhook target as up."

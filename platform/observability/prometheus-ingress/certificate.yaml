@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus-home-arpa
+  namespace: observability
+spec:
+  secretName: prometheus-home-arpa-tls
+  issuerRef:
+    name: homelab-ca
+    kind: ClusterIssuer
+  dnsNames:
+    - prometheus.home.arpa

@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: alertmanager-home-arpa
+  namespace: observability
+spec:
+  secretName: alertmanager-home-arpa-tls
+  issuerRef:
+    name: homelab-ca
+    kind: ClusterIssuer
+  dnsNames:
+    - alertmanager.home.arpa

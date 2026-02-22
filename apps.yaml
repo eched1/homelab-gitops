@@ -239,3 +239,50 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platform-observability-prometheus-ingress
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "34"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/eched1/homelab-gitops.git
+    targetRevision: main
+    path: platform/observability/prometheus-ingress
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platform-observability-alertmanager-ingress
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "35"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/eched1/homelab-gitops.git
+    targetRevision: main
+    path: platform/observability/alertmanager-ingress
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -2,3 +2,5 @@ resources:
   - root-app.yaml
   - platform-observability-prometheus.yaml
   - platform-observability-loki.yaml
+  - platform-observability-prometheus-ingress.yaml
+  - platform-observability-alertmanager-ingress.yaml

@@ -5,13 +5,25 @@ metadata:
   namespace: linkerd
 spec:
   secretName: linkerd-identity-issuer
+
+  # critical: Linkerd requires an intermediate CA
+  isCA: true
+
   duration: 2160h   # 90d
   renewBefore: 360h # 15d
+
   privateKey:
     algorithm: ECDSA
     size: 256
+
   issuerRef:
     name: homelab-ca
     kind: ClusterIssuer
-  dnsNames:
-    - identity.linkerd.cluster.local
+
+  # keep a stable CN; dnsNames is optional here
+  commonName: identity.linkerd.cluster.local
+
+  # recommended CA key usages
+  usages:
+    - cert sign
+    - crl sign

@@ -356,7 +356,6 @@ spec:
       releaseName: linkerd
       values: |
         identityTrustAnchorsPEM: |
-          # PASTE YOUR ROOT CA PEM HERE (root-ca.crt)
           -----BEGIN CERTIFICATE-----
           MIIBdDCCARugAwIBAgIRALU5EMKDyQlOg7JJoxLfTuEwCgYIKoZIzj0EAwIwGjEY
           MBYGA1UEAxMPaG9tZWxhYi1yb290LWNhMB4XDTI2MDIyMDA3NDExNVoXDTI2MDUy
@@ -367,9 +366,6 @@ spec:
           nW82MAoGCCqGSM49BAMCA0cAMEQCID3ZAJnALNathGDhyVqVZIW9lVPLjDIrnVOb
           C+svaU/iAiBiFVAHzWCgo2XkG6NyxqSNUdiQE7BPkGz0C7k88FP8vg==
           -----END CERTIFICATE-----
-          # ...
-          # -----END CERTIFICATE-----
-
         identity:
           externalCA: true
           issuer:

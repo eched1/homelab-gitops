@@ -393,7 +393,7 @@ spec:
   source:
     repoURL: https://helm.linkerd.io/stable
     chart: linkerd-viz
-    targetRevision: 2.11.5
+    targetRevision: 30.12.11
     helm:
       releaseName: linkerd-viz
   syncPolicy:
